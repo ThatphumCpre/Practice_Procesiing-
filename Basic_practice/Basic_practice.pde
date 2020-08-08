@@ -1,8 +1,9 @@
 ///name : Thatphum Paonim 
 ///date : 8 August 2020 
-/// Using Fucntion to draw Balloon  
+/// Using Condition and Animate Balloon   
 
 color purple = color(150,150,255);  //collect purple color
+int yPosition = 400;  //initialization, start point 
 
 void setup() {
   size(500, 500); // set size(height,width)
@@ -10,8 +11,18 @@ void setup() {
 
 void draw() {
    fill(purple);  //fill color 
-   balloon(250, 250, 100, 100);//use fuction name "balloon" that we created to create balloon
+   background(255); //draw white background 
+   balloon(250, yPosition, 100, 100);
+   //draw balloon with new position 
    
+   if (yPosition+150 < 0) { //condion if (true) will work in body of condition
+   //if tail is over the edge 
+      yPosition=height; //body  
+      //shift to bottom 
+   }
+   else { // 'else' will work after if condition 
+     yPosition -= 1; //update , move ballon 
+   }
 }
 
 void balloon(int positionX, int positionY, int size, int tailSize){
