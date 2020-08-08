@@ -1,14 +1,16 @@
 ///name : Thatphum Paonim 
 ///date : 8 August 2020 
-/// Character Of draw() and setup() 
+/// Draw Circle, Ellipse, Rectangle
 
 void setup() {
-  // setup() will run only one time 
-	println("This worked from setup()");  //display from setup()
-	delay(2000); //hold program 
+  size(500, 500); // this line means setting canvas to size(height,width
 }
 
 void draw() { 
-  // draw() will run infinite time and do after setup() 
-	println("This worked from draw()"); //display from draw() 
+   ellipse(250, 250, 100, 150);
+   //draw ellipse( center of ellipse in x, y, diameter in width, height)
+   circle(90, 250, 100);   
+   //if draw circle( center of circle inx, y, diameter in width, height) 
+   rect(350, 150, 100, 200); 
+   //draw rectangle (start position x, y, width, height ) 
 }
