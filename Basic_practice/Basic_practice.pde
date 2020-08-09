@@ -1,68 +1,22 @@
 ///name : Thatphum Paonim 
 ///date : 9 August 2020 
-/// Using random to create wind 
+/// Pracetice Array 
 
-Balloon myBalloon;  //set "myBalloon" as object of "Balloon" class 
-color purple = color(150,150,255);  //collect purple color
+int[]   a = new int[5];      //create 'a' as array of int that will collect 5 Intreger
+//array gonna look like the box that could collect each type
+//we gonna call each place is index,Therefore 'a' going to have  a[0],a[1],a[2],a[3],a[4] if a int[5];
+float[] b = new float[3];    //create 'b' as array of float that will collect 3 Float
+char[]  c = new char[4];     //create 'c' as array of char that will collect 4 character 
+String[] d = new String[7];  //create 'd' as array of String that will collect 7 Sring 
 
 void setup() {
-  size(500, 500); // set size(height,width)
-  myBalloon =  new Balloon(250, 250, 100, 100);  //instance or create obj from "Balloon" named "myBalloon" 
-}
-
-void draw() {
-   fill(purple);  //fill color 
-   background(255); //draw white background
-   myBalloon.draw();  //use method draw() from obj "myBalloon"
-   myBalloon.move();  //use method move() from obj "myBalloon" 
+  println(a); //will show each empty array is 0  
+  println(b); //will show each empty array is 0.0 
+  println(c); //will show each empty array is '' 
+  println(d); //will show each empty array is null 
+  a[0] = 10;  // 10 will collect in index = 0  of 'a' 
+  a[2] = 20;  // 20 will collect in index = 2  of 'a' 
+  println(a);
   
-}
-
-
-class Balloon{
-  //create class named  "Balloon" 
-      int positionX,positionY;   //set attribute coordinate 
-      int size,tailSize;         // set size 
-      int wind;   //set wind as attribute 
-      
-      Balloon(int x, int y, int inputSize, int inputTailSize){ 
-        // Constructor method will do after after instance or create object 
-         positionX = x;   //collect coordinate where user want to draw as attribute
-         positionY = y; 
-         size = inputSize;        //collect  size, tail size  as attribute 
-         tailSize = inputTailSize; 
-         wind = int(random(-100,100));  // random values collect in wind between [-100,100]
-         
-      }
-      
-      void move() {
-      //method to move Balloon
-        
-         if (wind == 0)  //if wind stop or have no value 
-         {
-           wind = int(random(-100,100));  //random new wind 
-         }
-         else if (wind > 0) {   //if wind blow to right side or positive value 
-           positionX+=1 ;       //move balloon to right side 
-           wind-=1;             //wind lost efficiency
-         }
-         else if (wind < 0) { //if wind blow to left side or negative values
-           positionX-=1;      //move balloon to left side or negative values 
-           wind+=1;           //wind lost efficiency 
-         }
-         
-         if (positionY+(size/2)+tailSize < 0) {  //if tail is over the edge
-              positionY=height; //shift to bottom  
-         }
-         else { 
-               positionY -= 1; //update , move ballon 
-         }
-       }
-
-      void draw(){
-        //method to draw Balloon 
-         ellipse(positionX, positionY, size, size); //draw circle in center of canvas by use variable 
-         rect(positionX, positionY + (size/2), 1, tailSize);   // draw line from circle  by use variable
-           //tail it start form radius of  balloon
-       }
+  
 }
