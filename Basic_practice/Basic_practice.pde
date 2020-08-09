@@ -1,13 +1,13 @@
 ///name : Thatphum Paonim 
 ///date : 9 August 2020 
-/// -Add Click Stop,Start for fun 
+/// -Add Rainbow Color for fun 
 
 Balloon[] myBalloon;  //set "myBalloon" as array object of "Balloon" class 
 color purple = color(150,150,255);  //collect purple color
 
 void setup() {
   size(1000, 1000); // set size(height,width)
-  int quantity = 8; 
+  int quantity = 10; 
   myBalloon =  new Balloon[quantity];  //instance or create array obj from "Balloon" named "myBalloon"  that have array as quantity 
   for(int i=0; i<quantity ; i++) {  //for loop  in  quantiity 
     myBalloon[i] = new Balloon(int(random(0,width)), int(random(0,height)), int(random(75,150)) , 100);
@@ -32,6 +32,7 @@ class Balloon{
       int size,tailSize;         // set size 
       int wind;   //set wind as attribute
       int pressCheck = 0;
+      int colour; 
       
       Balloon(int x, int y, int inputSize, int inputTailSize){ 
         // Constructor method will do after after instance or create object 
@@ -40,6 +41,7 @@ class Balloon{
          size = inputSize;        //collect  size, tail size  as attribute 
          tailSize = inputTailSize; 
          wind = int(random(-100,100));  // random values collect in wind between [-100,100]
+         colour = int(random(0,255));
          
       }
       
@@ -80,8 +82,11 @@ class Balloon{
 
       void draw(){
         //method to draw Balloon 
-         ellipse(positionX, positionY, size, size); //draw circle in center of canvas by use variable 
-         rect(positionX, positionY + (size/2), 1, tailSize);   // draw line from circle  by use variable
+        colorMode(HSB);  //change mode HSB (Hue,Saturation,Brightness)
+        if (colour >= 255)  colour=0;  else  colour++;  //update color
+        fill(colour, 150, 255);  //fill new color 
+        ellipse(positionX, positionY, size, size); //draw circle in center of canvas by use variable 
+        rect(positionX, positionY + (size/2), 1, tailSize);   // draw line from circle  by use variable
            //tail it start form radius of  balloon
        }
 }
